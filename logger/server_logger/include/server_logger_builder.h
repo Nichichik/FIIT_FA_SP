@@ -3,6 +3,7 @@
 
 #include <logger_builder.h>
 #include <unordered_map>
+#include <nlohmann/json.hpp>
 #include "server_logger.h"
 
 class server_logger_builder final:
@@ -37,6 +38,9 @@ public:
     logger_builder& set_format(const std::string& format) & override;
 
     [[nodiscard]] logger *build() const override;
+
+private:
+    std::string _format;
 
 };
 
